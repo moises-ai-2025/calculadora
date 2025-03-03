@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/calculadoras.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Calculadora Padrão - CalcMaster</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html"><h1><i class="fas fa-calculator"></i> CalcMaster</h1></a>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../index.html#calculadoras">Calculadoras</a></li>
+                    <li><a href="../index.html#sobre">Sobre</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="calc-page">
+        <div class="container">
+            <div class="calc-header">
+                <h1>Calculadora Padrão</h1>
+                <p>Uma calculadora completa com funções básicas e científicas</p>
+            </div>
+            
+            <div class="calculadora">
+                <div class="header">
+                    <h2>Calculadora</h2>
+                    <button id="calc-theme-toggle" class="theme-toggle">🌙</button>
+                </div>
+                <div class="display-container">
+                    <p id="expression" class="expression"></p>
+                    <p id="resultado" class="resultado"></p>
+                </div>
+                <div class="tabs">
+                    <button id="basic-tab" class="tab-button active">Básica</button>
+                    <button id="scientific-tab" class="tab-button">Científica</button>
+                    <button id="history-tab" class="tab-button">Histórico</button>
+                </div>
+                <div id="basic-calculator" class="calculator-mode active">
+                    <table>
+                        <tr>
+                            <td><button class="botao funcao" onclick="clean()">C</button></td>
+                            <td><button class="botao funcao" onclick="back()">⌫</button></td>
+                            <td><button class="botao operador" onclick="insert('/')">÷</button></td>
+                            <td><button class="botao operador" onclick="insert('*')">×</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="botao numero" onclick="insert('7')">7</button></td>
+                            <td><button class="botao numero" onclick="insert('8')">8</button></td>
+                            <td><button class="botao numero" onclick="insert('9')">9</button></td>
+                            <td><button class="botao operador" onclick="insert('-')">−</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="botao numero" onclick="insert('4')">4</button></td>
+                            <td><button class="botao numero" onclick="insert('5')">5</button></td>
+                            <td><button class="botao numero" onclick="insert('6')">6</button></td>
+                            <td><button class="botao operador" onclick="insert('+')">+</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="botao numero" onclick="insert('1')">1</button></td>
+                            <td><button class="botao numero" onclick="insert('2')">2</button></td>
+                            <td><button class="botao numero" onclick="insert('3')">3</button></td>
+                            <td rowspan="2"><button class="botao igual" onclick="calcular()">=</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="botao funcao" onclick="toggleSign()">±</button></td>
+                            <td><button class="botao numero" onclick="insert('0')">0</button></td>
+                            <td><button class="botao numero" onclick="insert('.')">.</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="scientific-calculator" class="calculator-mode">
+                    <table>
+                        <tr>
+                            <td><button class="botao funcao" onclick="clean()">C</button></td>
+                            <td><button class="botao funcao" onclick="back()">⌫</button></td>
+                            <td><button class="botao funcao" onclick="insert('Math.PI')">π</button></td>
+                            <td><button class="botao funcao" onclick="insert('Math.E')">e</button></td>
+                            <td><button class="botao operador" onclick="insert('/')">/</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="botao funcao" onclick="insertFunction('Math.sin(')">sin</button></td>
+                            <td><button class="botao numero" onclick="insert('7')">7</button></td>
+                            <td><button class="botao numero" onclick="insert('8')">8</button></td>
+                            <td><button class="botao numero" onclick="insert('9')">9</button></td>
+                            <td><button class="botao operador" onclick="insert('*')">×</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="botao funcao" onclick="insertFunction('Math.cos(')">cos</button></td>
+                            <td><button class="botao numero" onclick="insert('4')">4</button></td>
+                            <td><button class="botao numero" onclick="insert('5')">5</button></td>
+                            <td><button class="botao numero" onclick="insert('6')">6</button></td>
+                            <td><button class="botao operador" onclick="insert('-')">−</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="botao funcao" onclick="insertFunction('Math.tan(')">tan</button></td>
+                            <td><button class="botao numero" onclick="insert('1')">1</button></td>
+                            <td><button class="botao numero" onclick="insert('2')">2</button></td>
+                            <td><button class="botao numero" onclick="insert('3')">3</button></td>
+                            <td><button class="botao operador" onclick="insert('+')">+</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="botao funcao" onclick="insertFunction('Math.sqrt(')">√</button></td>
+                            <td><button class="botao funcao" onclick="insertFunction('Math.pow(', 2)">x²</button></td>
+                            <td><button class="botao numero" onclick="insert('0')">0</button></td>
+                            <td><button class="botao numero" onclick="insert('.')">.</button></td>
+                            <td><button class="botao igual" onclick="calcular()">=</button></td>
+                        </tr>
+                        <tr>
+                            <td><button class="botao funcao" onclick="insertFunction('Math.log10(')">log</button></td>
+                            <td><button class="botao funcao" onclick="insertFunction('Math.log(')">ln</button></td>
+                            <td><button class="botao funcao" onclick="insert('(')">(</button></td>
+                            <td><button class="botao funcao" onclick="insert(')')">)</button></td>
+                            <td><button class="botao funcao" onclick="insertFunction('Math.pow(', 3)">x³</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="history-panel" class="calculator-mode">
+                    <div id="history-list" class="history-list">
+                        <p class="history-empty">Nenhum cálculo realizado ainda.</p>
+                    </div>
+                    <button id="clear-history" class="clear-history">Limpar Histórico</button>
+                </div>
+            </div>
+            
+            <div class="calc-info">
+                <h2>Como usar</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3><i class="fas fa-calculator"></i> Modo Básico</h3>
+                        <p>Use a calculadora básica para operações simples do dia a dia:</p>
+                        <ul>
+                            <li>Adição, subtração, multiplicação e divisão</li>
+                            <li>Números decimais</li>
+                            <li>Alternar sinal positivo/negativo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-square-root-alt"></i> Modo Científico</h3>
+                        <p>Acesse funções avançadas para cálculos mais complexos:</p>
+                        <ul>
+                            <li>Funções trigonométricas (sin, cos, tan)</li>
+                            <li>Logaritmos (log, ln)</li>
+                            <li>Potências e raízes</li>
+                            <li>Constantes matemáticas (π, e)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3><i class="fas fa-history"></i> Histórico</h3>
+                        <p>Acompanhe seus cálculos anteriores:</p>
+                        <ul>
+                            <li>Visualize os últimos cálculos realizados</li>
+                            <li>Clique em um cálculo para reutilizá-lo</li>
+                            <li>Limpe o histórico quando desejar</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="keyboard-shortcuts">
+                    <h3>Atalhos de Teclado</h3>
+                    <div class="shortcuts-grid">
+                        <div class="shortcut">
+                            <span class="key">0-9</span>
+                            <span class="desc">Números</span>
+                        </div>
+                        <div class="shortcut">
+                            <span class="key">+</span>
+                            <span class="desc">Adição</span>
+                        </div>
+                        <div class="shortcut">
+                            <span class="key">-</span>
+                            <span class="desc">Subtração</span>
+                        </div>
+                        <div class="shortcut">
+                            <span class="key">*</span>
+                            <span class="desc">Multiplicação</span>
+                        </div>
+                        <div class="shortcut">
+                            <span class="key">/</span>
+                            <span class="desc">Divisão</span>
+                        </div>
+                        <div class="shortcut">
+                            <span class="key">.</span>
+                            <span class="desc">Ponto decimal</span>
+                        </div>
+                        <div class="shortcut">
+                            <span class="key">Enter</span>
+                            <span class="desc">Calcular</span>
+                        </div>
+                        <div class="shortcut">
+                            <span class="key">Esc</span>
+                            <span class="desc">Limpar</span>
+                        </div>
+                        <div class="shortcut">
+                            <span class="key">Backspace</span>
+                            <span class="desc">Apagar último</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-calculator"></i> CalcMaster</h2>
+                    <p>Seu site de cálculos</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="../index.html#calculadoras">Calculadoras</a></li>
+                        <li><a href="../index.html#sobre">Sobre</a></li>
+                    </ul>
+                </div>
+                <div class="footer-calculadoras">
+                    <h3>Calculadoras</h3>
+                    <ul>
+                        <li><a href="padrao.html">Calculadora Padrão</a></li>
+                        <li><a href="financeira.html">Calculadora Financeira</a></li>
+                        <li><a href="imc.html">Calculadora de IMC</a></li>
+                        <li><a href="conversao.html">Conversor de Unidades</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CalcMaster - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/calculadora.js"></script>
+</body>
+</html>

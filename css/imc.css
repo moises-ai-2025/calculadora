@@ -1,0 +1,272 @@
+.imc-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.imc-calculator, .imc-result {
+  flex: 1;
+  min-width: 300px;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.imc-calculator h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.imc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.form-group input {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: var(--bg-light);
+  color: var(--text-color);
+}
+
+.btn-imc {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.btn-imc:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.result-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.result-placeholder i {
+  font-size: 48px;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.imc-value {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.imc-value h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.imc-number {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.imc-category {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.imc-details {
+  background-color: var(--bg-light);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.imc-details h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.imc-details p {
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.imc-details ul {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.imc-details li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 15px;
+  color: var(--text-light);
+}
+
+.imc-details li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+}
+
+/* IMC Info */
+.imc-info {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.imc-info h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.imc-info p {
+  margin-bottom: 20px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.imc-info h3 {
+  font-size: 22px;
+  margin: 30px 0 20px;
+  color: var(--text-color);
+}
+
+.imc-table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  margin-bottom: 30px;
+}
+
+.imc-row {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.imc-row:last-child {
+  border-bottom: none;
+}
+
+.imc-row.header {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+.imc-cell {
+  flex: 1;
+  padding: 12px 15px;
+  background-color: var(--card-bg);
+}
+
+.imc-row.header .imc-cell {
+  background-color: var(--primary-color);
+}
+
+.imc-disclaimer {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  margin-top: 30px;
+}
+
+.imc-disclaimer h3 {
+  margin-top: 0;
+  color: var(--danger-color);
+  display: flex;
+  align-items: center;
+}
+
+.imc-disclaimer h3::before {
+  content: '⚠️';
+  margin-right: 10px;
+}
+
+/* Cores para categorias de IMC */
+.category-underweight {
+  color: #3498db;
+}
+
+.category-normal {
+  color: #2ecc71;
+}
+
+.category-overweight {
+  color: #f39c12;
+}
+
+.category-obese1 {
+  color: #e67e22;
+}
+
+.category-obese2 {
+  color: #d35400;
+}
+
+.category-obese3 {
+  color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .imc-container {
+    flex-direction: column;
+  }
+  
+  .imc-calculator, .imc-result {
+    width: 100%;
+  }
+  
+  .imc-row {
+    flex-direction: column;
+  }
+  
+  .imc-row.header {
+    display: none;
+  }
+  
+  .imc-cell {
+    padding: 10px;
+  }
+  
+  .imc-cell:before {
+    content: attr(data-label);
+    font-weight: 600;
+    display: inline-block;
+    width: 120px;
+  }
+}

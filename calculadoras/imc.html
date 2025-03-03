@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/calculadoras.css">
+    <link rel="stylesheet" href="../css/imc.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Calculadora de IMC - CalcMaster</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html"><h1><i class="fas fa-calculator"></i> CalcMaster</h1></a>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../index.html#calculadoras">Calculadoras</a></li>
+                    <li><a href="../index.html#sobre">Sobre</a></li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="calc-page">
+        <div class="container">
+            <div class="calc-header">
+                <h1>Calculadora de IMC</h1>
+                <p>Calcule seu Índice de Massa Corporal e avalie seu peso</p>
+            </div>
+            
+            <div class="imc-container">
+                <div class="imc-calculator">
+                    <h2>Calcule seu IMC</h2>
+                    <div class="imc-form">
+                        <div class="form-group">
+                            <label for="altura">Altura (cm)</label>
+                            <input type="number" id="altura" placeholder="Ex: 170" min="1" max="300">
+                        </div>
+                        <div class="form-group">
+                            <label for="peso">Peso (kg)</label>
+                            <input type="number" id="peso" placeholder="Ex: 70" min="1" max="500">
+                        </div>
+                        <button id="calcular-imc" class="btn-imc">Calcular IMC</button>
+                    </div>
+                </div>
+                
+                <div class="imc-result" id="imc-result">
+                    <div class="result-placeholder">
+                        <i class="fas fa-calculator"></i>
+                        <p>Preencha os dados e clique em "Calcular IMC" para ver o resultado</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="imc-info">
+                <h2>O que é IMC?</h2>
+                <p>O Índice de Massa Corporal (IMC) é uma medida internacional usada para calcular se uma pessoa está no peso ideal. O IMC é determinado pela divisão do peso de uma pessoa (em quilogramas) pelo quadrado de sua altura (em metros).</p>
+                
+                <h3>Classificação do IMC</h3>
+                <div class="imc-table">
+                    <div class="imc-row header">
+                        <div class="imc-cell">IMC</div>
+                        <div class="imc-cell">Classificação</div>
+                        <div class="imc-cell">Risco</div>
+                    </div>
+                    <div class="imc-row">
+                        <div class="imc-cell">Menor que 18,5</div>
+                        <div class="imc-cell">Abaixo do peso</div>
+                        <div class="imc-cell">Elevado</div>
+                    </div>
+                    <div class="imc-row">
+                        <div class="imc-cell">18,5 a 24,9</div>
+                        <div class="imc-cell">Peso normal</div>
+                        <div class="imc-cell">Normal</div>
+                    </div>
+                    <div class="imc-row">
+                        <div class="imc-cell">25,0 a 29,9</div>
+                        <div class="imc-cell">Sobrepeso</div>
+                        <div class="imc-cell">Elevado</div>
+                    </div>
+                    <div class="imc-row">
+                        <div class="imc-cell">30,0 a 34,9</div>
+                        <div class="imc-cell">Obesidade Grau I</div>
+                        <div class="imc-cell">Alto</div>
+                    </div>
+                    <div class="imc-row">
+                        <div class="imc-cell">35,0 a 39,9</div>
+                        <div class="imc-cell">Obesidade Grau II</div>
+                        <div class="imc-cell">Muito alto</div>
+                    </div>
+                    <div class="imc-row">
+                        <div class="imc-cell">Maior que 40,0</div>
+                        <div class="imc-cell">Obesidade Grau III</div>
+                        <div class="imc-cell">Extremamente alto</div>
+                    </div>
+                </div>
+                
+                <div class="imc-disclaimer">
+                    <h3>Importante</h3>
+                    <p>O IMC é apenas uma medida geral e não leva em consideração a composição corporal. Atletas, por exemplo, podem ter um IMC elevado devido à massa muscular, sem necessariamente apresentar riscos à saúde.</p>
+                    <p>Consulte sempre um profissional de saúde para uma avaliação completa do seu estado físico.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2><i class="fas fa-calculator"></i> CalcMaster</h2>
+                    <p>Seu site de cálculos</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="../index.html#calculadoras">Calculadoras</a></li>
+                        <li><a href="../index.html#sobre">Sobre</a></li>
+                    </ul>
+                </div>
+                <div class="footer-calculadoras">
+                    <h3>Calculadoras</h3>
+                    <ul>
+                        <li><a href="padrao.html">Calculadora Padrão</a></li>
+                        <li><a href="financeira.html">Calculadora Financeira</a></li>
+                        <li><a href="imc.html">Calculadora de IMC</a></li>
+                        <li><a href="conversao.html">Conversor de Unidades</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CalcMaster - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/imc.js"></script>
+</body>
+</html>

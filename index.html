@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalcMaster - Seu Site de Cálculos</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-calculator"></i> CalcMaster</h1>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="#" class="active">Início</a></li>
+          <li><a href="#calculadoras">Calculadoras</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+        </ul>
+      </nav>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Cálculos simplificados para todos</h1>
+        <p>Resolva problemas matemáticos, financeiros, científicos e do dia a dia com nossas calculadoras especializadas.</p>
+        <a href="#calculadoras" class="btn">Começar agora</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="calculadoras" class="calculadoras">
+    <div class="container">
+      <h2 class="section-title">Nossas Calculadoras</h2>
+      <p class="section-desc">Escolha entre diversas calculadoras especializadas para diferentes necessidades</p>
+      
+      <div class="calc-grid">
+        <div class="calc-card" data-calc="padrao">
+          <div class="calc-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <h3>Calculadora Padrão</h3>
+          <p>Operações básicas e científicas para uso geral</p>
+          <a href="calculadoras/padrao.html" class="btn-small">Abrir</a>
+        </div>
+        
+        <div class="calc-card" data-calc="financeira">
+          <div class="calc-icon">
+            <i class="fas fa-coins"></i>
+          </div>
+          <h3>Calculadora Financeira</h3>
+          <p>Juros, empréstimos, investimentos e amortizações</p>
+          <a href="calculadoras/financeira.html" class="btn-small">Abrir</a>
+        </div>
+        
+        <div class="calc-card" data-calc="imc">
+          <div class="calc-icon">
+            <i class="fas fa-weight"></i>
+          </div>
+          <h3>Calculadora de IMC</h3>
+          <p>Calcule seu Índice de Massa Corporal</p>
+          <a href="calculadoras/imc.html" class="btn-small">Abrir</a>
+        </div>
+        
+        <div class="calc-card" data-calc="conversao">
+          <div class="calc-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </div>
+          <h3>Conversor de Unidades</h3>
+          <p>Converta entre diferentes unidades de medida</p>
+          <a href="calculadoras/conversao.html" class="btn-small">Abrir</a>
+        </div>
+        
+        <div class="calc-card" data-calc="geometria">
+          <div class="calc-icon">
+            <i class="fas fa-shapes"></i>
+          </div>
+          <h3>Calculadora Geométrica</h3>
+          <p>Áreas, volumes e propriedades de figuras geométricas</p>
+          <a href="calculadoras/geometria.html" class="btn-small">Abrir</a>
+        </div>
+        
+        <div class="calc-card" data-calc="estatistica">
+          <div class="calc-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>Calculadora Estatística</h3>
+          <p>Média, mediana, desvio padrão e outras análises</p>
+          <a href="calculadoras/estatistica.html" class="btn-small">Abrir</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="destaque" class="destaque">
+    <div class="container">
+      <div class="destaque-content">
+        <h2>Calculadora mais utilizada</h2>
+        <p>Nossa calculadora padrão oferece funções básicas e científicas em uma interface intuitiva</p>
+        <div class="mini-calc-container">
+          <div class="mini-calc">
+            <div class="mini-calc-display">
+              <div class="mini-calc-expression" id="mini-expression"></div>
+              <div class="mini-calc-result" id="mini-result">0</div>
+            </div>
+            <div class="mini-calc-buttons">
+              <button class="mini-btn func" onclick="miniCalc('clear')">C</button>
+              <button class="mini-btn func" onclick="miniCalc('backspace')">⌫</button>
+              <button class="mini-btn op" onclick="miniCalc('/')">/</button>
+              <button class="mini-btn op" onclick="miniCalc('*')">×</button>
+              
+              <button class="mini-btn num" onclick="miniCalc('7')">7</button>
+              <button class="mini-btn num" onclick="miniCalc('8')">8</button>
+              <button class="mini-btn num" onclick="miniCalc('9')">9</button>
+              <button class="mini-btn op" onclick="miniCalc('-')">-</button>
+              
+              <button class="mini-btn num" onclick="miniCalc('4')">4</button>
+              <button class="mini-btn num" onclick="miniCalc('5')">5</button>
+              <button class="mini-btn num" onclick="miniCalc('6')">6</button>
+              <button class="mini-btn op" onclick="miniCalc('+')">+</button>
+              
+              <button class="mini-btn num" onclick="miniCalc('1')">1</button>
+              <button class="mini-btn num" onclick="miniCalc('2')">2</button>
+              <button class="mini-btn num" onclick="miniCalc('3')">3</button>
+              <button class="mini-btn equal" onclick="miniCalc('=')">=</button>
+              
+              <button class="mini-btn num" onclick="miniCalc('0')">0</button>
+              <button class="mini-btn num" onclick="miniCalc('.')">.</button>
+              <button class="mini-btn func" onclick="miniCalc('sign')">±</button>
+            </div>
+          </div>
+        </div>
+        <a href="calculadoras/padrao.html" class="btn">Versão completa</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="sobre">
+    <div class="container">
+      <h2 class="section-title">Sobre o CalcMaster</h2>
+      <div class="sobre-content">
+        <div class="sobre-text">
+          <p>O CalcMaster foi desenvolvido para oferecer ferramentas de cálculo precisas e fáceis de usar para estudantes, profissionais e qualquer pessoa que precise realizar cálculos no dia a dia.</p>
+          <p>Nossas calculadoras são projetadas com foco na usabilidade e precisão, oferecendo resultados confiáveis para suas necessidades de cálculo.</p>
+          <h3>Recursos principais:</h3>
+          <ul>
+            <li><i class="fas fa-check"></i> Calculadoras especializadas para diferentes áreas</li>
+            <li><i class="fas fa-check"></i> Interface intuitiva e responsiva</li>
+            <li><i class="fas fa-check"></i> Histórico de cálculos</li>
+            <li><i class="fas fa-check"></i> Modo escuro para reduzir o cansaço visual</li>
+            <li><i class="fas fa-check"></i> Totalmente gratuito e sem necessidade de cadastro</li>
+          </ul>
+        </div>
+        <div class="sobre-img">
+          <img src="img/calculator-illustration.svg" alt="Ilustração de calculadora">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2><i class="fas fa-calculator"></i> CalcMaster</h2>
+          <p>Seu site de cálculos</p>
+        </div>
+        <div class="footer-links">
+          <h3>Links Rápidos</h3>
+          <ul>
+            <li><a href="#">Início</a></li>
+            <li><a href="#calculadoras">Calculadoras</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+          </ul>
+        </div>
+        <div class="footer-calculadoras">
+          <h3>Calculadoras</h3>
+          <ul>
+            <li><a href="calculadoras/padrao.html">Calculadora Padrão</a></li>
+            <li><a href="calculadoras/financeira.html">Calculadora Financeira</a></li>
+            <li><a href="calculadoras/imc.html">Calculadora de IMC</a></li>
+            <li><a href="calculadoras/conversao.html">Conversor de Unidades</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 CalcMaster - Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
